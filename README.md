@@ -5,7 +5,7 @@ Built using react + redux.
 
 ## Live demo:
 
-Live demo accessible [here]('https://build-rilrywchmz.now.sh').
+Live demo accessible [here](https://build-rilrywchmz.now.sh)
 
 ## Running locally:
 
