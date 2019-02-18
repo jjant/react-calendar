@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { format } from 'date-fns';
+import { connect } from 'react-redux';
 import './App.css';
+import { Modal } from './Modal';
+import { Header } from './Header';
+import { Calendar } from './Calendar';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = ({ events, isOpen }) => {
+	const date = new Date();
+	const month = format(date, 'MMMM');
+	const year = format(date, 'YYYY');
 
-export default App;
+	return (
+		<div className="App">
+			{isOpen ? <Modal /> : null}
+			<Header month={month} year={year} />
+			<Calendar events={events} date={date} />
+		</div>
+	);
+};
+
+const mapStateToProps = ({ events, isModalOpen }) => ({
+	events,
+	isOpen: isModalOpen
+});
+
+export default connect(mapStateToProps)(App);

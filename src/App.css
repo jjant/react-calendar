@@ -1,33 +1,179 @@
-.App {
-  text-align: center;
+* {
+	box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+html,
+body,
+#root,
+.App {
+	height: 100%;
+}
+
+.App {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	display: flex;
+	align-items: baseline;
+	padding: 12px 32px;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.App-header > * {
+	margin: 0;
+}
+
+.App-header-year {
+	margin-right: 16px;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Calendar {
+	display: flex;
+	flex-direction: column;
+}
+
+.Calendar-header {
+	display: flex;
+	height: 48px;
+}
+
+.Calendar-header-day {
+	width: calc(100% / 7);
+	text-align: right;
+	padding-right: 8px;
+}
+
+.Calendar-days {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.Calendar,
+.Calendar-days {
+	height: 100%;
+}
+
+.Calendar-day {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid gray;
+	padding: 8px;
+	width: calc(100% / 7);
+	height: calc(100% / 6);
+	cursor: pointer;
+}
+
+.Calendar-day-event.Green {
+	background: lightgreen;
+}
+
+.Calendar-day-event.Yellow {
+	background: lightyellow;
+}
+
+.Calendar-day-event.Red {
+	background: mistyrose;
+}
+.Calendar-day-header {
+	text-align: right;
+	margin: 0;
+}
+
+.Calendar-day-disabled {
+	color: gray;
+	cursor: not-allowed;
+}
+
+.Calendar-day-events {
+	overflow-y: scroll;
+}
+
+.Modal {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.4);
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.Modal-inner {
+	width: 550px;
+	height: 385px;
+	margin: 0 auto;
+	position: absolute;
+	border: 1px solid lightgray;
+	padding: 12px 24px;
+	background: #f4f4f4;
+	top: 50%;
+	right: 50%;
+	transform: translateX(50%) translateY(-50%);
+}
+
+.Modal-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 32px;
+}
+
+.Modal-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Modal-form-field {
+	display: flex;
+	justify-content: space-between;
+	width: 350px;
+	margin-bottom: 16px;
+}
+
+.Modal-form-input {
+	width: 160px;
+	height: 32px;
+}
+
+.Modal-form-actions {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.Modal-form-cancel,
+.Modal-form-submit {
+	margin-top: 24px;
+	border: 1px solid darkgray;
+	padding: 8px 12px;
+	border-radius: 0;
+	font-weight: bold;
+}
+
+.Modal-form-cancel {
+	background: #ec8787;
+	color: #eee;
 }
